@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Lista e të Ardhurave</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Lista e të Ardhurave</h2>
+        
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th><data</th>
+                    <th>kategoria</th>
+                    <th>shuma</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for obj in fitimet_list %}
+                <tr>
+                    <td>{{ obj.data }}</td>
+                    <td>{{ obj.kategoria }}</td>
+                    <td>{{ obj.shuma }} Lekë</td>
+                    <td>
+                        <a href="{% url 'redakto_ardhura' obj.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{% url 'fshi_ardhura' obj.pk %}" class="btn btn-sm btn-danger">Fshi</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{% url 'shtepia' %}" class="btn btn-primary mt-3">Kryesore</a>
+    </div>
+</body>
+</html>

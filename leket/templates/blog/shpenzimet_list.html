@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista e Shpenzimeve</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<body>
+
+    <h2>Lista e Shpenzimeve</h2>
+
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Shuma</th>
+                    <th>Data</th>
+                </tr>
+        </thead>
+        <tbody>
+            {% for s in shpenzimet_list %}
+            <tr>
+                <td>{{ s.shuma }}</td>
+                <td>{{ s.data }}</td>
+                <td>
+                    <a href="{% url 'fshi_shpenzime' s.id %}" class="btn btn-sm btn-danger">Fshi</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Nuk ka asnjë shpenzim të regjistruar.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/">Kryesore</a>
+
+</body>
+</html>
